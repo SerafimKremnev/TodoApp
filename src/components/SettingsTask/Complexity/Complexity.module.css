@@ -1,0 +1,14 @@
+.filled path{
+    fill: var(--main);
+}
+
+.star {
+    display: inline-block;
+    margin-right: 2px;
+}
+
+.starBlock {
+    position: relative;
+    top: 3px;
+    left: 10px;
+}

@@ -1,0 +1,7 @@
+.taskForm {
+    display: grid;
+    grid-template-columns: minmax(200px, 600px);
+    justify-content: center;
+    gap: 5px;
+    padding-top: 20px;
+}
