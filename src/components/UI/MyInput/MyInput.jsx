@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './MyInput.module.css'
 
-const MyInput = ({value, task, setValue, placeholder }) => {
+const MyInput = ({value, setValue, placeholder, ...props}) => {
   return (
-    <input className={styles.input} placeholder={placeholder} {...task('task-name')} value={value} onChange={(e)=>setValue(e.target.value)} type="text"/>
+    <input required {...props} className={styles.input} placeholder={placeholder} value={value} onChange={(e)=>setValue(e.target.value)} type="text"/>
   );
 };
 

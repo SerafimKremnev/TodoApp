@@ -2,13 +2,12 @@ import React, {useState} from 'react';
 import styles from './Comment.module.css'
 import Textarea from 'react-expanding-textarea'
 
-const Comment = ({task, controlComplexity}) => {
+const Comment = () => {
 
   return (
     <div className={styles.descriptipon}>
       Описание
       <Textarea
-        {...task('description')}
         className={styles.comment}
       />
     </div>

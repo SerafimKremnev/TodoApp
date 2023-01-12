@@ -1,3 +1,52 @@
 .task {
-    
+    background: var(--white);
+    border-radius: 12px;
+    padding: 15px 15px 20px 15px;
+    display: grid;
+    grid-template-columns: 20px auto 80px;
+    grid-template-areas:
+            "taskname taskname duedate"
+            "taskname taskname ."
+            "priority . compl"
+;
+    gap: 5px;
+}
+
+.taskName {
+    grid-area: taskname;
+    font-weight: 600;
+}
+
+.dueDate {
+    grid-area: duedate;
+}
+
+.complexity {
+    grid-area: compl;
+    position: relative;
+    justify-self: right;
+    right: 30px;
+}
+
+.priority {
+    grid-area: priority;
+    font-size: 12px;
+}
+
+.num {
+    position: absolute;
+    top: 0;
+    left: 6px;
+    z-index: 1;
+    color: #fff;
+}
+
+.star path{
+    fill: var(--main);
+}
+.star{
+    transform: scale(1.25);
+    position: absolute;
+    top: 0;
+    left: 0;
 }

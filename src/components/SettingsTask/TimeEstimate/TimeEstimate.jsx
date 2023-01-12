@@ -15,7 +15,7 @@ const TimeEstimate = ({task}) => {
   today()
   return (
     <div className={styles.timeEstimate} style={{margin: '20px 0px 0px 0px'}}>
-      Завершить до <input {...task('due-date')}className={styles.date} type='date' min={today()}/>
+      Завершить до <input className={styles.date} type='date' min={today()}/>
     </div>
   );
 };

@@ -1,0 +1,23 @@
+.layout {
+    display: grid;
+    grid-template-columns: 300px minmax(320px, 1200px) auto;
+    min-height: 100vh;
+    grid-template-rows: min-content auto;
+    grid-template-areas:
+            "header header header "
+            "sidebar body body "
+;
+}
+
+.header {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    flex: 1;
+}
+
+.main {
+    grid-area: body;
+}

@@ -6,19 +6,14 @@ import TimeEstimate from "./TimeEstimate/TimeEstimate";
 import Comment from "./Comment/Comment";
 import {Controller} from "react-hook-form";
 
-const SettingsTask = ({task, controlComplexity}) => {
+const SettingsTask = () => {
+  const [complexity, setComplexity] = useState(0)
   return (
     <div className={styles.settings}>
-      <Controller
-        control={controlComplexity}
-        name='complexity'
-        render={({field}) => (
-          <Complexity setComplexity={field.onChange} complexity={field.value}/>
-        )}
-      />
-      <TimeEstimate task={task}/>
-      <Priority controlComplexity={controlComplexity} task={task}/>
-      <Comment task={task} controlComplexity={controlComplexity}/>
+      <Complexity setComplexity={setComplexity} complexity={complexity}/>
+      <TimeEstimate/>
+      <Priority/>
+      <Comment />
     </div>
   );
 };

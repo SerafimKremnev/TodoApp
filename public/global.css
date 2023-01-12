@@ -25,3 +25,13 @@ a {
 button {
     cursor: pointer;
 }
+
+.App {
+    min-height: 100vh;
+}
+
+.active {
+    background: rgba(37, 100, 207, 0.1);
+    border-left: 3px solid var(--main);
+    font-weight: 700;
+}
