@@ -3,8 +3,9 @@ import styles from './Complexity.module.css'
 import cn from 'classnames';
 import { ReactComponent as StarIcon } from './star.svg';
 import task from "../../Task/Task";
+import {isEditable} from "@testing-library/user-event/dist/utils";
 
-const Complexity = ({setComplexity, complexity, task}) => {
+const Complexity = ({setComplexity, isEditable, complexity, control, ...props}) => {
   const [complexityArr, setComplexityArr] = useState(complexity);
   const array = new Array(5).fill(<></>)
   const constructArray = (currentComplexity) => {
@@ -14,13 +15,16 @@ const Complexity = ({setComplexity, complexity, task}) => {
       })}
         onMouseEnter={() => changeDisplay(i+1)}
         onMouseLeave={() => changeDisplay(complexity)}
-        onClick={()=> setComplexity(i+1)}
+        onClick={()=> isEditable && setComplexity(i+1)}
       >
         <StarIcon className={styles.star}/>
       </span>
     ))
   }
   const changeDisplay = (num) => {
+    if (!isEditable) {
+      return
+    }
     constructArray(num)
     setComplexityArr(num)
   }

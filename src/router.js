@@ -4,13 +4,15 @@ import {
   RouterProvider, Routes,
 } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
-import TaskList from "./components/TaskList/TaskList";
-import TaskFrom from "./components/TaskForm/TaskFrom";
+import CreateTask from "./pages/CreateTask";
+import Today from "./pages/Today";
+import Tasks from "./pages/Tasks";
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/" element={<Layout />}>
-    <Route path={'/tasks'} element={<TaskList/>} />
-    <Route path='/task-form' element={<TaskFrom/>}/>
+  <Route path="/" element={<Layout/>}>
+    <Route path={'/tasks'} element={<Tasks/>} />
+    <Route path={'/create'} element={<CreateTask/>} />
+    <Route path={'/today'} element={<Today/>} />
   </Route>
   )
 );
