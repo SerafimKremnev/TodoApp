@@ -1,0 +1,22 @@
+.checkbox {
+    display: flex;
+    border: 2px solid var(--main);
+    border-radius: 50%;
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+    background: none;
+}
+.complete {
+    border-left: 2px solid var(--main);
+    border-bottom: 2px solid var(--main);
+    width: 7px;
+    height: 5px;
+    margin: 3px;
+    transform: rotate(-45deg);
+    opacity: 0;
+    transition: all .2s;
+}
+.checkbox:hover .complete{
+    opacity: 1;
+}

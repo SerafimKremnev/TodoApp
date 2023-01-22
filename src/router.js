@@ -7,13 +7,17 @@ import Layout from "./components/Layout/Layout";
 import CreateTask from "./pages/CreateTask";
 import Today from "./pages/Today";
 import Tasks from "./pages/Tasks";
+import EditTask from "./components/EditTask";
+import Complete from "./pages/Complete";
 
 const router = createBrowserRouter(createRoutesFromElements(
-  <Route path="/" element={<Layout/>}>
-    <Route path={'/tasks'} element={<Tasks/>} />
-    <Route path={'/create'} element={<CreateTask/>} />
-    <Route path={'/today'} element={<Today/>} />
-  </Route>
+    <Route path="/" element={<Layout/>}>
+      <Route path={'/tasks'} element={<Tasks/>} />
+      <Route path={'/create'} element={<CreateTask/>} />
+      <Route path={'/today'} element={<Today/>} />
+      <Route path={'/complete'} element={<Complete/>} />
+      <Route path={`tasks/:id/edit`} element={<EditTask/>} />
+    </Route>
   )
 );
 

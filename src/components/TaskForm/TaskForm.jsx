@@ -6,11 +6,11 @@ import MyButton from "../UI/MyButton/MyButton";
 import {useForm} from "react-hook-form";
 import {Form, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {addTodo} from "../../store/todoSlice";
+import {addTodo, toggleTodo} from "../../store/todoSlice";
 
 
-const TaskForm = () => {
-  const [value, setValue] = useState('')
+const TaskForm = ({isEditable = false, task}) => {
+  const [value, setValue] = useState(() => isEditable ? task.taskname : '')
   const { register, control, handleSubmit } = useForm()
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -20,16 +20,25 @@ const TaskForm = () => {
   }
 
   const onSubmit = (data) => {
-    console.log(data)
-    addTask(data)
-    navigate("/tasks");
+    if (isEditable) {
+      navigate(-1)
+      dispatch(toggleTodo(data))
+    } else {
+      addTask(data)
+      navigate("/tasks");
+    }
   }
 
   return (
     <Form action={'/create'} method={'post'} onSubmit={handleSubmit(onSubmit)} className={styles.taskForm}>
-      <MyInput register={register} required setValue={setValue} value={value} placeholder={"Название задачи"}/>
-      <SettingsTask register={register} control={control}/>
-      <MyButton type="submit">Добавить задачу</MyButton>
+      <MyInput task={task} isEditable={isEditable} register={register} required setValue={setValue} value={value} placeholder={"Название задачи"}/>
+      <SettingsTask task={task} isEditTask={isEditable} register={register} control={control}/>
+      <input type={'hidden'} {...register('id')} defaultValue={isEditable ? task.id : Date.now()}/>
+      {
+        isEditable ?
+          <MyButton type="submit">Редактировать задачу</MyButton> :
+          <MyButton type="submit">Добавить задачу</MyButton>
+      }
     </Form >
   );
 }

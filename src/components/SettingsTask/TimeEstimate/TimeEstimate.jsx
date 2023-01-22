@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TimeEstimate.module.css'
 
-const TimeEstimate = ({task, register,...props}) => {
+const TimeEstimate = ({task, isEditTask, register,...props}) => {
   const today = () => {
     const date = new Date()
     let yyyy = date.getFullYear()
@@ -15,7 +15,7 @@ const TimeEstimate = ({task, register,...props}) => {
   today()
   return (
     <div className={styles.timeEstimate} style={{margin: '20px 0px 0px 0px'}}>
-      Завершить до <input {...props} {...register('time')} className={styles.date} type='date' min={today()}/>
+      Завершить до <input defaultValue={isEditTask && task.time} {...props} {...register('time')} className={styles.date} type='date' min={today()}/>
     </div>
   );
 };

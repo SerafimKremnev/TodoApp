@@ -3,7 +3,7 @@ import Select, { StylesConfig } from 'react-select';
 import styles from './Priority.module.css'
 import {Controller} from "react-hook-form";
 
-const Priority = ({register, control, ...props}) => {
+const Priority = ({register, control, isEditTask, task, ...props}) => {
   const options = [
     { value: 'Low', label: 'Low'},
     { value: 'Middle', label: 'Middle' },
@@ -15,6 +15,7 @@ const Priority = ({register, control, ...props}) => {
       <Controller
         control={control}
         name={"priority"}
+        defaultValue={isEditTask && task.priority}
         render={( { field }) => (
           <Select
             {...props}

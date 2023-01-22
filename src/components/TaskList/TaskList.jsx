@@ -3,8 +3,9 @@ import Task from "../Task/Task";
 import {useSelector} from "react-redux";
 import {dateDMY} from "../../time";
 
-const TaskList = ({isToday = false}) => {
+const TaskList = ({isToday = false, isComplete = false}) => {
   const tasks = useSelector(state => state.tasks.tasks)
+  const completedTasks = useSelector(state => state.tasks.completedTasks)
 
   function checknull(item, value) {
     if (item) {
@@ -26,20 +27,28 @@ const TaskList = ({isToday = false}) => {
   const todayTasks = () => {
     console.log(dateDMY(Date.now()))
     return tasks.filter(task => editDate(task.time) == dateDMY(Date.now()))
+  }
+  const checkPage = (arr) => {
+    return (
+      arr.map(task => (
+        <Task id={task.id} complexity={checknull(task.complexity, 0)} task_name={task.taskname} priority={checknull(task.priority?.value, '')} due_date={editDate(task.time)} description={task.comment}/>
+      ))
+    )
+  }
 
+  const returnPage = () => {
+    if(isToday) {
+      return checkPage(todayTasks())
+    } else if (isComplete) {
+      return checkPage(completedTasks)
+    }
+    return checkPage(tasks)
   }
 
   return (
     <div>
       {
-        isToday ?
-          todayTasks().map(task => (
-            <Task complexity={checknull(task.complexity, 0)} task_name={task.taskname} priority={checknull(task.priority?.value, '')} due_date={editDate(task.time)}/>
-        )) :
-
-          tasks.map(task => (
-            <Task complexity={checknull(task.complexity, 0)} task_name={task.taskname} priority={checknull(task.priority?.value, '')} due_date={editDate(task.time)}/>
-        ))
+        returnPage()
       }
     </div>
   );
