@@ -3,7 +3,7 @@ import Task from "../Task/Task";
 import {useSelector} from "react-redux";
 import {dateDMY} from "../../time";
 
-const TaskList = ({isToday = false, isComplete = false}) => {
+const TaskList = ({isToday = false, isComplete = false, isImportant =false}) => {
   const tasks = useSelector(state => state.tasks.tasks)
   const completedTasks = useSelector(state => state.tasks.completedTasks)
 
@@ -25,13 +25,15 @@ const TaskList = ({isToday = false, isComplete = false}) => {
 
 
   const todayTasks = () => {
-    console.log(dateDMY(Date.now()))
     return tasks.filter(task => editDate(task.time) == dateDMY(Date.now()))
+  }
+  const importantTasks = () => {
+    return tasks.filter(task => task.priority.value == "High")
   }
   const checkPage = (arr) => {
     return (
       arr.map(task => (
-        <Task id={task.id} isComplete={isComplete} isToday={isToday} complexity={checknull(task.complexity, 0)} task_name={task.taskname} priority={checknull(task.priority?.value, '')} due_date={editDate(task.time)} description={task.comment}/>
+        <Task editDate={editDate} isComplete={isComplete} isToday={isToday} task={task}/>
       ))
     )
   }
@@ -41,6 +43,8 @@ const TaskList = ({isToday = false, isComplete = false}) => {
       return checkPage(todayTasks())
     } else if (isComplete) {
       return checkPage(completedTasks)
+    } else if(isImportant) {
+      return checkPage(importantTasks())
     }
     return checkPage(tasks)
   }

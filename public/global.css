@@ -4,7 +4,8 @@
     --white: #fff;
     --font: #000;
     --gray: #d5d5d5;
-    --gray-dark: #838383
+    --gray-dark: #838383;
+    --main-hover: #1a4ba2;
 }
 
 * {

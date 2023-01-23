@@ -6,11 +6,10 @@ import Checkbox from "../UI/Checkbox/Checkbox";
 import {useDispatch} from "react-redux";
 import {completeTodo, returnTodo} from "../../store/todoSlice";
 
-const Task = ({complexity, isComplete, priority, task_name, due_date, description, id}) => {
+const Task = ({isComplete, task, editDate}) => {
   const [open, setOpen] = useState(false)
   const dispatch = useDispatch()
-  const task = {complexity, priority, task_name, due_date, description, id}
-
+  console.log(task)
   const openAdd = () => {
     setOpen(!open)
     console.log(open)
@@ -22,13 +21,13 @@ const Task = ({complexity, isComplete, priority, task_name, due_date, descriptio
           <Checkbox isComplete={isComplete} onClick={()=>dispatch(
             isComplete ? returnTodo(task) : completeTodo(task)
           )}/>
-          <div>{task_name}</div>
+          <div>{task.taskname}</div>
         </div>
-        <div className={styles.priority}>{priority}</div>
-        <div className={styles.dueDate}>{due_date}</div>
+        <div className={styles.priority}>{task.priority.value}</div>
+        <div className={styles.dueDate}>{editDate(task.time)}</div>
       </div>
-      <Add isOpen={open} complexity={complexity} description={description} />
-      <Toolkit isComplete={isComplete} id={id}/>
+      <Add isOpen={open} trackTime={task.trackTime} complexity={task.complexity} description={task.comment} />
+      <Toolkit isComplete={isComplete} id={task.id}/>
     </div>
   );
 };

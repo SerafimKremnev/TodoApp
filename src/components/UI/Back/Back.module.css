@@ -15,5 +15,5 @@
 }
 
 .icon:hover path {
-    fill: #1a4ba2;
+    fill: var(--main-hover);
 }

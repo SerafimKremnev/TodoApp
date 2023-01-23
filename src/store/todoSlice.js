@@ -6,20 +6,22 @@ const todoSlice = createSlice({
   initialState: {
     tasks: [],
     completedTasks: [],
+    track: {
+      isTracking: false,
+      taskId: 0
+    }
   },
   reducers: {
     addTodo(state, action) {
       console.log(state, action)
-      state.tasks.push(action.payload)
+      state.tasks.push({...action.payload, trackTime: 0})
     },
     removeTodo(state, action) {
       state.tasks = state.tasks.filter(task => task.id != action.payload)
     },
     toggleTodo(state, action) {
       const index = state.tasks.findIndex(task => task.id == action.payload.id)
-      console.log(index)
-      state.tasks[index] = action.payload
-      console.log(state.tasks[index])
+      state.tasks[index] = {...action.payload, trackTime: state.tasks[index].trackTime}
     },
     completeTodo(state, action) {
       state.completedTasks.push(state.tasks.find(task => task.id == action.payload.id))
@@ -31,10 +33,30 @@ const todoSlice = createSlice({
     returnTodo(state, action) {
       state.tasks.push(state.completedTasks.find(task => task.id == action.payload.id))
       state.completedTasks = state.completedTasks.filter(task => task.id != action.payload.id)
+    },
+    toggleTrack(state, action) {
+      state.track.isTracking = !state.track.isTracking
+    },
+    getTrackId(state, action) {
+      state.track.taskId = action.payload
+    },
+    endTrack(state, action) {
+      const task = state.tasks.find(task => task.id == state.track.taskId);
+      task.trackTime += action.payload
     }
   }
 
 })
 
-export const {addTodo, removeTodo, toggleTodo, completeTodo, removeCompleteTodo, returnTodo} = todoSlice.actions
+export const {
+  addTodo,
+  removeTodo,
+  toggleTodo,
+  completeTodo,
+  removeCompleteTodo,
+  returnTodo,
+  toggleTrack,
+  getTrackId,
+  endTrack
+} = todoSlice.actions
 export default todoSlice.reducer
