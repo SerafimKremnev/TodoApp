@@ -1,10 +1,13 @@
 import React from 'react';
 import style from './Checkbox.module.css'
+import cn from "classnames";
 
-const Checkbox = ({...props}) => {
+const Checkbox = ({isComplete, ...props}) => {
   return (
-    <button {...props} className={style.checkbox}>
-        <div className={style.complete}></div>
+    <button {...props}
+            className={cn(style.checkbox, {
+              [style.checkboxComplete]: isComplete
+            })}>
     </button>
   );
 };

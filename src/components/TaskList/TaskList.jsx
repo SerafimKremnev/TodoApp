@@ -31,7 +31,7 @@ const TaskList = ({isToday = false, isComplete = false}) => {
   const checkPage = (arr) => {
     return (
       arr.map(task => (
-        <Task id={task.id} complexity={checknull(task.complexity, 0)} task_name={task.taskname} priority={checknull(task.priority?.value, '')} due_date={editDate(task.time)} description={task.comment}/>
+        <Task id={task.id} isComplete={isComplete} isToday={isToday} complexity={checknull(task.complexity, 0)} task_name={task.taskname} priority={checknull(task.priority?.value, '')} due_date={editDate(task.time)} description={task.comment}/>
       ))
     )
   }
