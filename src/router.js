@@ -14,7 +14,7 @@ import GroupPage from "./pages/GroupPage";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Layout/>}>
-      <Route path={'/tasks'} element={<Tasks/>} />
+      <Route index path={'/tasks'} element={<Tasks/>} />
       <Route path={'/create'} element={<CreateTask/>} />
       <Route path={'/today'} element={<Today/>} />
       <Route path={'/complete'} element={<Complete/>} />
