@@ -30,6 +30,16 @@
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: all .15s;
+}
+
+.taskName div {
+    transition: all .15s;
+}
+
+
+.taskName:hover div {
+    color: var(--main);
 }
 
 .iconActive path {

@@ -1,10 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './MyInput.module.css'
 
-const MyInput = ({value, setValue, placeholder, register, ...props}) => {
-
+const MyInput = ({isEditable, placeholder, register, defVal, ...props}) => {
   return (
-    <input autoComplete="off" {...register('taskname')} required {...props} className={styles.input} placeholder={placeholder} value={value} onChange={(e)=>setValue(e.target.value)} type="text"/>
+    <input autoComplete="off" {...register('taskname')} defaultValue={defVal} required {...props} className={styles.input} placeholder={placeholder} type="text"/>
   );
 };
 

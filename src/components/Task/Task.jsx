@@ -26,7 +26,7 @@ const Task = ({isComplete, task, editDate}) => {
         <div className={styles.priority}>{task.priority.value}</div>
         <div className={styles.dueDate}>{editDate(task.time)}</div>
       </div>
-      <Add isOpen={open} trackTime={task.trackTime} complexity={task.complexity} description={task.comment} />
+      <Add isOpen={open} group={task.groupName} trackTime={task.trackTime} complexity={task.complexity} description={task.comment} />
       <Toolkit isComplete={isComplete} id={task.id}/>
     </div>
   );

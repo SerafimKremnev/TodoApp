@@ -10,7 +10,6 @@ import {addTodo, toggleTodo} from "../../store/todoSlice";
 
 
 const TaskForm = ({isEditable = false, task}) => {
-  const [value, setValue] = useState(() => isEditable ? task.taskname : '')
   const { register, control, handleSubmit } = useForm()
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,7 +30,7 @@ const TaskForm = ({isEditable = false, task}) => {
 
   return (
     <Form action={'/create'} method={'post'} onSubmit={handleSubmit(onSubmit)} className={styles.taskForm}>
-      <MyInput task={task} isEditable={isEditable} register={register} required setValue={setValue} value={value} placeholder={"Название задачи"}/>
+      <MyInput defVal={isEditable ? task.taskname : ''} isEditable={isEditable} register={register} required placeholder={"Название задачи"}/>
       <SettingsTask task={task} isEditTask={isEditable} register={register} control={control}/>
       <input type={'hidden'} {...register('id')} defaultValue={isEditable ? task.id : Date.now()}/>
       {

@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import Task from "../Task/Task";
 import {useSelector} from "react-redux";
 import {dateDMY} from "../../time";
+import styles from './TaskList.module.css'
 
-const TaskList = ({isToday = false, isComplete = false, isImportant =false}) => {
+const TaskList = ({isToday = false, isComplete = false, isImportant =false, id, isGroupPage}) => {
   const tasks = useSelector(state => state.tasks.tasks)
   const completedTasks = useSelector(state => state.tasks.completedTasks)
 
@@ -30,12 +31,17 @@ const TaskList = ({isToday = false, isComplete = false, isImportant =false}) => 
   const importantTasks = () => {
     return tasks.filter(task => task.priority.value == "High")
   }
+
+  const groupTask = () => {
+    return tasks.filter(task => task.groupName.id == id)
+  }
   const checkPage = (arr) => {
-    return (
-      arr.map(task => (
+    if (arr.length > 0) {
+      return (arr.map(task => (
         <Task editDate={editDate} isComplete={isComplete} isToday={isToday} task={task}/>
-      ))
-    )
+      )) )
+    }
+    return <div className={styles.noTasks}>Задач не найдено</div>
   }
 
   const returnPage = () => {
@@ -45,6 +51,8 @@ const TaskList = ({isToday = false, isComplete = false, isImportant =false}) => 
       return checkPage(completedTasks)
     } else if(isImportant) {
       return checkPage(importantTasks())
+    } else if(isGroupPage) {
+      return checkPage(groupTask())
     }
     return checkPage(tasks)
   }

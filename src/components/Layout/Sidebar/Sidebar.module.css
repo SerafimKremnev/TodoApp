@@ -13,3 +13,18 @@
     font-size: 16px;
     padding: 15px 20px;
 }
+
+.button {
+    display: block;
+    font-size: 16px;
+    padding: 15px 20px;
+    background: none;
+    border: none;
+}
+
+.stick {
+    width: 100%;
+    height: 1px;
+    background: var(--gray);
+    margin: 18px 0;
+}

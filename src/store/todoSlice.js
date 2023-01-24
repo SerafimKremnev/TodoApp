@@ -33,6 +33,7 @@ const todoSlice = createSlice({
     returnTodo(state, action) {
       state.tasks.push(state.completedTasks.find(task => task.id == action.payload.id))
       state.completedTasks = state.completedTasks.filter(task => task.id != action.payload.id)
+
     },
     toggleTrack(state, action) {
       state.track.isTracking = !state.track.isTracking
@@ -43,7 +44,11 @@ const todoSlice = createSlice({
     endTrack(state, action) {
       const task = state.tasks.find(task => task.id == state.track.taskId);
       task.trackTime += action.payload
-    }
+    },
+    deleteGroupTask(state, action) {
+      const task = state.tasks.find(task => task.groupName.id == action.payload);
+      task.groupName = {}
+    },
   }
 
 })
@@ -57,6 +62,8 @@ export const {
   returnTodo,
   toggleTrack,
   getTrackId,
-  endTrack
+  endTrack,
+  deleteGroupTask,
+  deleteGroupComplete
 } = todoSlice.actions
 export default todoSlice.reducer
