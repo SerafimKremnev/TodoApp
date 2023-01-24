@@ -26,7 +26,6 @@ const Groups = ({openGroup}) => {
     dispatch(addGroup({...d, color: color, idGroup: Date.now()}))
 
     const inputName = document.getElementById('sendGroupname')
-
     inputName.value = ''
     setColor(()=> randomColor())
   }
@@ -41,7 +40,7 @@ const Groups = ({openGroup}) => {
       </form>
       <div className={styles.group}>
         {
-          groups?.map(group =><Group idGroup={group.idGroup} color={group.color} groupname={group.groupname}/>)
+          groups.map(group =><Group idGroup={group.idGroup} color={group.color} groupname={group.groupname}/>)
         }
       </div>
     </div>
