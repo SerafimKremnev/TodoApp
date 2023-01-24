@@ -8,7 +8,6 @@ import Group from "./Group/Group";
 import cn from "classnames";
 const Groups = ({openGroup}) => {
   const {handleSubmit, register} = useForm()
-  const [text, setText] = useState('')
   const [color, setColor] = useState(()=>randomColor())
   const dispatch = useDispatch()
   const groups = useSelector(state => state.groups.groups)
@@ -25,10 +24,8 @@ const Groups = ({openGroup}) => {
 
   const onSubmit = (d) => {
     dispatch(addGroup({...d, color: color, idGroup: Date.now()}))
-    const groups = useSelector
 
     const inputName = document.getElementById('sendGroupname')
-    const inputColor = document.getElementById('sendColor')
 
     inputName.value = ''
     setColor(()=> randomColor())
