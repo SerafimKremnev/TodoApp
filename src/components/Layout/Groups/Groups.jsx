@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addGroup} from "../../../store/groupSlice";
 import Group from "./Group/Group";
 import cn from "classnames";
-
+//
 const Groups = ({openGroup}) => {
   const {handleSubmit, register} = useForm()
   const [text, setText] = useState('')
