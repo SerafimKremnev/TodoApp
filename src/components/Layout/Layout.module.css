@@ -14,6 +14,12 @@
     grid-area: header;
 }
 
+.burger {
+    width: 10px;
+    height: 10px;
+    background: #000000;
+}
+
 .sidebar {
     grid-area: sidebar;
     flex: 1;
@@ -21,4 +27,43 @@
 
 .main {
     grid-area: body;
+}
+
+@media (max-width: 750px) {
+    .sidebar {
+        grid-area: sidebar;
+        flex: 1;
+        position: absolute;
+        top: 0px;
+        bottom: 0;
+        left: -750px;
+        right: 0;
+        z-index: 1;
+        grid-template-columns: 1fr;
+        display: grid;
+        margin-right: 800px;
+        transition: all .2s;
+    }
+    .layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "  header "
+            "  body "
+    ;
+    }
+    .body {
+
+    }
+    .header {
+        grid-area: header;
+        position: relative;
+        z-index: 2;
+    }
+    .sidebarActive {
+        top: 38px;
+        display: grid;
+        left: 0;
+        margin-right: 0;
+    }
+
 }
