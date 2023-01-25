@@ -18,7 +18,7 @@ const Sidebar = ({className,setActiveSidebar}) => {
       <NavLink onClick={close} className={styles.sidebarLink} to={'/complete'}>Завершенные</NavLink>
       <div className={styles.stick}></div>
       <button onClick={()=>setOpenGroup(()=>!openGroup)} className={styles.button}>Группы</button>
-      <Groups openGroup={openGroup}/>
+      <Groups close={close} openGroup={openGroup}/>
     </div>
   );
 };

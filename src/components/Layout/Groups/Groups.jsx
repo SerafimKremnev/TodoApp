@@ -6,7 +6,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addGroup} from "../../../store/groupSlice";
 import Group from "./Group/Group";
 import cn from "classnames";
-const Groups = ({openGroup}) => {
+const Groups = ({openGroup, close}) => {
   const {handleSubmit, register} = useForm()
   const [color, setColor] = useState(()=>randomColor())
   const dispatch = useDispatch()
@@ -40,7 +40,7 @@ const Groups = ({openGroup}) => {
       </form>
       <div className={styles.group}>
         {
-          groups.map(group =><Group idGroup={group.idGroup} color={group.color} groupname={group.groupname}/>)
+          groups.map(group =><Group close={close} idGroup={group.idGroup} color={group.color} groupname={group.groupname}/>)
         }
       </div>
     </div>

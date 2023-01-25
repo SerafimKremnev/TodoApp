@@ -8,3 +8,13 @@
 .date:focus{
     outline-color: var(--main);
 }
+
+.timeEstimate {
+    margin-top: 20px;
+}
+
+@media (max-width: 400px) {
+    .timeEstimate {
+        margin-bottom: 20px;
+    }
+}

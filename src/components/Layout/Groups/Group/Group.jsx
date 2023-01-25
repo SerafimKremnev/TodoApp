@@ -7,7 +7,7 @@ import {Link, useLocation} from "react-router-dom";
 import {deleteGroupComplete, deleteGroupTask} from "../../../../store/todoSlice";
 import {useParams} from "react-router";
 
-const Group = ({color, groupname, idGroup}) => {
+const Group = ({color, groupname, idGroup, close}) => {
   const dispatch = useDispatch()
 
 
@@ -19,7 +19,7 @@ const Group = ({color, groupname, idGroup}) => {
   return (
     <div className={styles.group}>
       <div style={{background: color}} className={styles.color}></div>
-      <Link to={`/group/${idGroup}`}><div className={styles.groupname}>{groupname}</div></Link>
+      <Link onClick={close} to={`/group/${idGroup}`}><div className={styles.groupname}>{groupname}</div></Link>
       <Delete className={styles.delete} onClick={() => clearGroup()}/>
     </div>
   );

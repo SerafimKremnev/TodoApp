@@ -9,17 +9,17 @@ const Complexity = ({setComplexity, isEditable, complexity, control, ...props}) 
   const [complexityArr, setComplexityArr] = useState(complexity);
   const array = new Array(5).fill(<></>)
   const constructArray = (currentComplexity) => {
-    return array.map((star, i) => (
+    return <div className={styles.ratingBlock}> {array.map((star, i) => (
       <span className={cn(styles.starBlock, {
         [styles.filled]: i < currentComplexity
       })}
-        onMouseEnter={() => changeDisplay(i+1)}
-        onMouseLeave={() => changeDisplay(complexity)}
-        onClick={()=> isEditable && setComplexity(i+1)}
+            onMouseEnter={() => changeDisplay(i + 1)}
+            onMouseLeave={() => changeDisplay(complexity)}
+            onClick={() => isEditable && setComplexity(i + 1)}
       >
         <StarIcon className={styles.star}/>
       </span>
-    ))
+    ))}</div>
   }
   const changeDisplay = (num) => {
     if (!isEditable) {

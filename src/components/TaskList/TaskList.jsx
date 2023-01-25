@@ -58,7 +58,7 @@ const TaskList = ({isToday = false, isComplete = false, isImportant =false, id, 
   }
 
   return (
-    <div>
+    <div className={styles.tasklist}>
       {
         returnPage()
       }
