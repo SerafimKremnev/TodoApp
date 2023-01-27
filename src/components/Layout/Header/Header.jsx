@@ -6,11 +6,11 @@ import {supabase} from "../../../supabase/supabase";
 
 const Header = ({className, activeSidebar, setActiveSidebar}) => {
 
-  const auth = async () => {
-    const { data, error } = await supabase.auth.signInWithOAuth({
-      provider: 'google'
-    })
-  }
+  // const auth = async () => {
+  //   const { data, error } = await supabase.auth.signInWithOAuth({
+  //     provider: 'google'
+  //   })
+  // }
 
 
   return (
@@ -18,7 +18,7 @@ const Header = ({className, activeSidebar, setActiveSidebar}) => {
       <div className={styles.title}>To Do</div><div onClick={()=>setActiveSidebar(()=>!activeSidebar)} className={cn(styles.burger, {
         [styles.burgerClose]: activeSidebar
     })}></div>
-      <User onClick={auth} className={styles.user}/>
+      <User className={styles.user}/>
     </header>
   );
 };

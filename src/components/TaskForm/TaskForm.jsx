@@ -7,7 +7,6 @@ import {useForm} from "react-hook-form";
 import {Form, useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {addTodo, toggleTodo} from "../../store/todoSlice";
-import {supabase} from "../../supabase/supabase";
 
 
 const TaskForm = ({isEditable = false, task}) => {
@@ -27,9 +26,9 @@ const TaskForm = ({isEditable = false, task}) => {
       addTask(data)
       navigate("/tasks");
     }
-    const { error } = await supabase
-    .from('ToDo')
-    .insert({id: data.id, task: {...data, trackTime: 0}})
+    // const { error } = await supabase
+    // .from('ToDo')
+    // .insert({id: data.id, task: {...data, trackTime: 0}})
   }
 
   return (
