@@ -12,6 +12,9 @@ const todoSlice = createSlice({
     }
   },
   reducers: {
+    getFullData(state, action) {
+      state.tasks = action.payload
+    },
     addTodo(state, action) {
       state.tasks.push({...action.payload, trackTime: 0})
     },
@@ -66,6 +69,7 @@ export const {
   getTrackId,
   endTrack,
   deleteGroupTask,
+  getFullData,
   deleteGroupComplete
 } = todoSlice.actions
 export default todoSlice.reducer

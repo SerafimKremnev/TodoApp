@@ -1,13 +1,22 @@
 import './css/App.css';
-import TaskForm from "./components/TaskForm/TaskForm";
-import TaskList from "./components/TaskList/TaskList";
-import {Routes, Route, Link, RouterProvider, useLocation} from "react-router-dom";
-import Layout from "./components/Layout/Layout";
+import {RouterProvider} from "react-router-dom";
 import router from "./router";
-import React from "react";
+import React, {useEffect} from "react";
+import {useDispatch} from "react-redux";
+import {supabase} from "./supabase/supabase";
+import {getFullData} from "./store/todoSlice";
 
 function App() {
-
+  const dispatch = useDispatch()
+  async function getData(){
+    const { data, error } = await supabase
+    .from('ToDo')
+    .select()
+    dispatch(getFullData(data.map(task=> task.task)))
+  }
+  useEffect(async ()=> {
+    getData()
+  }, [])
   return (
     <div className="App">
       <RouterProvider router={router} />

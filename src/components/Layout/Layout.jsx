@@ -16,7 +16,7 @@ const Layout = () => {
     <div className={styles.layout}>
       <Header setActiveSidebar={setActiveSidebar} activeSidebar={activeSidebar} className={styles.header}></Header>
       <Sidebar className={cn(styles.sidebar, {
-        [styles.sidebarActive]: activeSidebar
+        [styles.sidebarOpen]: activeSidebar
       })} setActiveSidebar={setActiveSidebar}/>
       <Main className={styles.main}>
         <Outlet/>

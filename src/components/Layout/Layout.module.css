@@ -59,7 +59,7 @@
         position: relative;
         z-index: 2;
     }
-    .sidebarActive {
+    .sidebarOpen {
         top: 38px;
         display: grid;
         left: 0;

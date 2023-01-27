@@ -3,6 +3,7 @@
     font-weight: 500;
     padding-top: 20px;
     display: grid;
+
 }
 
 .active {
@@ -21,6 +22,7 @@
     font-size: 16px;
     padding: 15px 20px;
     background: none;
+    justify-self: left;
     border: none;
 }
 

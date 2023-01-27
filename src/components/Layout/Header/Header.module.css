@@ -6,6 +6,11 @@
     align-items: center;
 }
 
+.user {
+    width: 30px;
+    height: 30px;
+}
+
 .burger {
     width: 25px;
     height: 14px;
