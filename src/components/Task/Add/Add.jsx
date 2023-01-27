@@ -9,7 +9,6 @@ import Group from "../../Layout/Groups/Group/Group";
 import GroupTask from "./GroupTask/GroupTask";
 
 const Add = ({description, complexity, isOpen, trackTime, group, ...props}) => {
-  console.log(description)
   const msToHms = require('ms-to-hms')
   return (
     <div className={cn({

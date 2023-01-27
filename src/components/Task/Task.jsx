@@ -9,10 +9,8 @@ import {completeTodo, returnTodo} from "../../store/todoSlice";
 const Task = ({isComplete, task, editDate}) => {
   const [open, setOpen] = useState(false)
   const dispatch = useDispatch()
-  console.log(task)
   const openAdd = () => {
     setOpen(!open)
-    console.log(open)
   }
   return (
     <div className={styles.taskBlock}>

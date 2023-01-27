@@ -15,7 +15,7 @@ const TimeEstimate = ({task, isEditTask, register,...props}) => {
   today()
   return (
     <div className={styles.timeEstimate}>
-      Завершить до <input defaultValue={isEditTask && task.time} {...props} {...register('time')} className={styles.date} type='date' min={today()}/>
+      Завершить до <input defaultValue={isEditTask && task.time} {...props} {...register('time')} className={styles.date} type='date' />
     </div>
   );
 };

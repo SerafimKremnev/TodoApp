@@ -11,9 +11,11 @@ import EditTask from "./components/EditTask";
 import Complete from "./pages/Complete";
 import Important from "./pages/Important";
 import GroupPage from "./pages/GroupPage";
+import MainPage from "./pages/MainPage";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Layout/>}>
+      <Route index element={<MainPage/>}/>
       <Route path={'/tasks'} element={<Tasks/>} />
       <Route path={'/create'} element={<CreateTask/>} />
       <Route path={'/today'} element={<Today/>} />

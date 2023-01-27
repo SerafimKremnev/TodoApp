@@ -13,7 +13,6 @@ const todoSlice = createSlice({
   },
   reducers: {
     addTodo(state, action) {
-      console.log(state, action)
       state.tasks.push({...action.payload, trackTime: 0})
     },
     removeTodo(state, action) {
@@ -24,7 +23,8 @@ const todoSlice = createSlice({
       state.tasks[index] = {...action.payload, trackTime: state.tasks[index].trackTime}
     },
     completeTodo(state, action) {
-      state.completedTasks.push(state.tasks.find(task => task.id == action.payload.id))
+      const task = state.tasks.find(task => task.id == action.payload.id)
+      state.completedTasks.push({...task, completeTime: Date.now()})
       state.tasks = state.tasks.filter(task => task.id != action.payload.id)
     },
     removeCompleteTodo(state, action) {
@@ -47,7 +47,9 @@ const todoSlice = createSlice({
     },
     deleteGroupTask(state, action) {
       const task = state.tasks.find(task => task.groupName.id == action.payload);
-      task.groupName = {}
+      if(task){
+        task.groupName = {}
+      }
     },
   }
 

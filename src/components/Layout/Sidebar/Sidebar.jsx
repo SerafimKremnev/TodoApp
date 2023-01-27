@@ -11,6 +11,7 @@ const Sidebar = ({className,setActiveSidebar}) => {
   }
   return (
     <div className={cn(styles.sidebar, className)}>
+      <NavLink onClick={close} className={styles.sidebarLink} to={'/'}>Главная</NavLink>
       <NavLink onClick={close} className={styles.sidebarLink} to={'/create'}>Создать задачу</NavLink>
       <NavLink onClick={close} className={styles.sidebarLink} to={'/tasks'}>Все задачи</NavLink>
       <NavLink onClick={close} className={styles.sidebarLink} to={'/today'}>Сегодня</NavLink>

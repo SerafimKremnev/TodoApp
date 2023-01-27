@@ -7,7 +7,6 @@ import {useSelector} from "react-redux";
 const SelectGroup = ({register, control, isEditTask, task, ...props}) => {
 
   const groups = useSelector(state => state.groups.groups)
-  console.log(groups)
 
   const options = groups.map(group => ({value: group.groupname, label: group.groupname, color: group.color, id: group.idGroup}))
 
