@@ -11,7 +11,6 @@ const Header = ({className, activeSidebar, setActiveSidebar}) => {
       <div className={styles.title}>To Do</div><div onClick={()=>setActiveSidebar(()=>!activeSidebar)} className={cn(styles.burger, {
         [styles.burgerClose]: activeSidebar
     })}></div>
-      <User className={styles.user}/>
     </header>
   );
 };
