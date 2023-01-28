@@ -26,9 +26,6 @@ const TaskForm = ({isEditable = false, task}) => {
       addTask(data)
       navigate("/tasks");
     }
-    // const { error } = await supabase
-    // .from('ToDo')
-    // .insert({id: data.id, task: {...data, trackTime: 0}})
   }
 
   return (

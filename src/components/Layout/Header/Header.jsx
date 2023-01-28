@@ -2,15 +2,8 @@ import React from 'react';
 import styles from './Header.module.css'
 import cn from "classnames";
 import {ReactComponent as User} from "./user.svg";
-import {supabase} from "../../../supabase/supabase";
 
 const Header = ({className, activeSidebar, setActiveSidebar}) => {
-
-  // const auth = async () => {
-  //   const { data, error } = await supabase.auth.signInWithOAuth({
-  //     provider: 'google'
-  //   })
-  // }
 
 
   return (
