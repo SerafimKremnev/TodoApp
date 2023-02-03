@@ -5,7 +5,6 @@ import {ReactComponent as User} from "./user.svg";
 
 const Header = ({className, activeSidebar, setActiveSidebar}) => {
 
-
   return (
     <header className={cn(styles.header, className)}>
       <div className={styles.title}>To Do</div><div onClick={()=>setActiveSidebar(()=>!activeSidebar)} className={cn(styles.burger, {

@@ -11,12 +11,14 @@ const Sidebar = ({className,setActiveSidebar}) => {
   }
   return (
     <div className={cn(styles.sidebar, className)}>
+      <div>
       <NavLink onClick={close} className={styles.sidebarLink} to={'/'}>Главная</NavLink>
       <NavLink onClick={close} className={styles.sidebarLink} to={'/create'}>Создать задачу</NavLink>
       <NavLink onClick={close} className={styles.sidebarLink} to={'/tasks'}>Все задачи</NavLink>
       <NavLink onClick={close} className={styles.sidebarLink} to={'/today'}>Сегодня</NavLink>
       <NavLink onClick={close} className={styles.sidebarLink} to={'/important'}>Важно</NavLink>
       <NavLink onClick={close} className={styles.sidebarLink} to={'/complete'}>Завершенные</NavLink>
+      </div>
       <div className={styles.stick}></div>
       <button onClick={()=>setOpenGroup(()=>!openGroup)} className={styles.button}>Группы</button>
       <Groups close={close} openGroup={openGroup}/>
