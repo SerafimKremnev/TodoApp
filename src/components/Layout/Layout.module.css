@@ -39,8 +39,6 @@
         left: -750px;
         right: 0;
         z-index: 1;
-        grid-template-columns: 1fr;
-        display: grid;
         margin-right: 800px;
         transition: all .2s;
     }
@@ -61,7 +59,6 @@
     }
     .sidebarOpen {
         top: 38px;
-        display: grid;
         left: 0;
         margin-right: 0;
 

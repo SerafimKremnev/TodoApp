@@ -8,6 +8,9 @@
     color: var(--main);
 }
 
+.group {
+    align-self: flex-start;
+}
 .sidebarLink {
     display: block;
     font-size: 16px;
